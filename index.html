@@ -1,0 +1,389 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><script type="f4cdd323ef6c84a13d1718d2-text/javascript">(window.NREUM||(NREUM={})).loader_config={licenseKey:"NRJS-c03ab3bae17597080d7",applicationID:"1185281038"};window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var i=t[n]={exports:{}};e[n][0].call(i.exports,function(t){var i=e[n][1][t];return r(i||t)},i,i.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(e,t,n){function r(){}function i(e,t,n){return function(){return o(e,[u.now()].concat(c(arguments)),t?null:this,n),t?void 0:this}}var o=e("handle"),a=e(6),c=e(7),f=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(e,t){s[t]=i(p+t,!0,"api")}),s.addPageAction=i(p+"addPageAction",!0),s.setCurrentRouteName=i(p+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,i="function"==typeof t;return o(l+"tracer",[u.now(),e,n],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return t.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],n),e}finally{f.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=i(l+t)}),newrelic.noticeError=function(e,t){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,t])}},{}],2:[function(e,t,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=e(8);t.exports=r,t.exports.offset=a,t.exports.getLastTimestamp=i},{}],3:[function(e,t,n){function r(e,t){var n=e.getEntries();n.forEach(function(e){"first-paint"===e.name?d("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&d("timing",["fcp",Math.floor(e.startTime)])})}function i(e,t){var n=e.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(e){e.getEntries().forEach(function(e){e.hadRecentInput||d("cls",[e])})}function a(e){if(e instanceof m&&!g){var t=Math.round(e.timeStamp),n={type:e.type};t<=p.now()?n.fid=p.now()-t:t>p.offset&&t<=Date.now()?(t-=p.offset,n.fid=p.now()-t):t=p.now(),g=!0,d("timing",["fi",t,n])}}function c(e){d("pageHide",[p.now(),e])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var f,u,s,d=e("handle"),p=e("loader"),l=e(5),m=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){f=new PerformanceObserver(r);try{f.observe({entryTypes:["paint"]})}catch(v){}u=new PerformanceObserver(i);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(v){}s=new PerformanceObserver(o);try{s.observe({type:"layout-shift",buffered:!0})}catch(v){}}if("addEventListener"in document){var g=!1,w=["click","keydown","mousedown","pointerdown","touchstart"];w.forEach(function(e){document.addEventListener(e,a,!1)})}l(c)}},{}],4:[function(e,t,n){function r(e,t){if(!i)return!1;if(e!==i)return!1;if(!t)return!0;if(!o)return!1;for(var n=o.split("."),r=t.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}t.exports={agent:i,version:o,match:r}},{}],5:[function(e,t,n){function r(e){function t(){e(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,t,!1)}t.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],6:[function(e,t,n){function r(e,t){var n=[],r="",o=0;for(r in e)i.call(e,r)&&(n[o]=t(r,e[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],7:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,i=n-t||0,o=Array(i<0?0:i);++r<i;)o[r]=e[t+r];return o}t.exports=r},{}],8:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function i(e){function t(e){return e&&e instanceof r?e:e?u(e,f,a):a()}function n(n,r,i,o,a){if(a!==!1&&(a=!0),!l.aborted||o){e&&a&&e(n,r,i);for(var c=t(i),f=v(n),u=f.length,s=0;s<u;s++)f[s].apply(c,r);var p=d[h[n]];return p&&p.push([b,n,r,c]),c}}function o(e,t){y[e]=v(e).concat(t)}function m(e,t){var n=y[e];if(n)for(var r=0;r<n.length;r++)n[r]===t&&n.splice(r,1)}function v(e){return y[e]||[]}function g(e){return p[e]=p[e]||i(n)}function w(e,t){s(e,function(e,n){t=t||"feature",h[n]=t,t in d||(d[t]=[])})}var y={},h={},b={on:o,addEventListener:o,removeEventListener:m,emit:n,get:g,listeners:v,context:t,buffer:w,abort:c,aborted:!1};return b}function o(e){return u(e,f,a)}function a(){return new r}function c(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var f="nr@context",u=e("gos"),s=e(6),d={},p={},l=t.exports=i();t.exports.getOrSetContext=o,l.backlog=d},{}],gos:[function(e,t,n){function r(e,t,n){if(i.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[t]=r,r}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){i.buffer([e],r),i.emit(e,t,n)}var i=e("ee").get("handle");t.exports=r,r.ee=i},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=b.info=NREUM.info,t=p.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return u.abort();f(y,function(t,n){e[t]||(e[t]=n)});var n=a();c("mark",["onload",n+b.offset],null,"api"),c("timing",["load",n]);var r=p.createElement("script");r.src="https://"+e.agent,t.parentNode.insertBefore(r,t)}}function i(){"complete"===p.readyState&&o()}function o(){c("mark",["domContent",a()+b.offset],null,"api")}var a=e(2),c=e("handle"),f=e(6),u=e("ee"),s=e(4),d=window,p=d.document,l="addEventListener",m="attachEvent",v=d.XMLHttpRequest,g=v&&v.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:v,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var w=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1198.min.js"},h=v&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),b=t.exports={offset:a.getLastTimestamp(),now:a,origin:w,features:{},xhrWrappable:h,userAgent:s};e(1),e(3),p[l]?(p[l]("DOMContentLoaded",o,!1),d[l]("load",r,!1)):(p[m]("onreadystatechange",i),d[m]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var x=0},{}],"wrap-function":[function(e,t,n){function r(e,t){function n(t,n,r,f,u){function nrWrapper(){var o,a,s,p;try{a=this,o=d(arguments),s="function"==typeof r?r(o,a):r||{}}catch(l){i([l,"",[o,a,f],s],e)}c(n+"start",[o,a,f],s,u);try{return p=t.apply(a,o)}catch(m){throw c(n+"err",[o,a,m],s,u),m}finally{c(n+"end",[o,a,p],s,u)}}return a(t)?t:(n||(n=""),nrWrapper[p]=t,o(t,nrWrapper,e),nrWrapper)}function r(e,t,r,i,o){r||(r="");var c,f,u,s="-"===r.charAt(0);for(u=0;u<t.length;u++)f=t[u],c=e[f],a(c)||(e[f]=n(c,s?f+r:r,i,f,o))}function c(n,r,o,a){if(!m||t){var c=m;m=!0;try{e.emit(n,r,o,t,a)}catch(f){i([f,n,r,o],e)}m=c}}return e||(e=s),n.inPlace=r,n.flag=p,n}function i(e,t){t||(t=s);try{t.emit("internal-error",e)}catch(n){}}function o(e,t,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(e);return r.forEach(function(n){Object.defineProperty(t,n,{get:function(){return e[n]},set:function(t){return e[n]=t,t}})}),t}catch(o){i([o],n)}for(var a in e)l.call(e,a)&&(t[a]=e[a]);return t}function a(e){return!(e&&e instanceof Function&&e.apply&&!e[p])}function c(e,t){var n=t(e);return n[p]=e,o(e,n,s),n}function f(e,t,n){var r=e[t];e[t]=c(r,n)}function u(){for(var e=arguments.length,t=new Array(e),n=0;n<e;++n)t[n]=arguments[n];return t}var s=e("ee"),d=e(7),p="nr@original",l=Object.prototype.hasOwnProperty,m=!1;t.exports=r,t.exports.wrapFunction=c,t.exports.wrapInPlace=f,t.exports.argsToArray=u},{}]},{},["loader"]);</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1, user-scalable=0">
+<meta property="fb:app_id" content="363740184092926" />
+<meta name="google-site-verification" content="ge0O96OmkUcSIxGg1LpYiWQ6AqhIzuf-O4eQN4asHcY" />
+<meta name="description" itemprop="description" content="">
+<link rel="icon" type="image/png" href="https://assets.givelab.com/img/favicon.png" />
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700" />
+<link rel="stylesheet" href="https://assets.givelab.com/css/noty/noty.css?v=4.3.9" />
+<link rel="stylesheet" href="https://assets.givelab.com/css/theme.css?v=4.3.9" />
+<link rel="stylesheet" href="https://assets.givelab.com/css/min.css?v=4.3.9" />
+<link rel="stylesheet" href="https://assets.givelab.com/css/ratio.css?v=4.3.9" />
+<link rel="stylesheet" href="https://assets.givelab.com/css/style.css?v=4.3.9" />
+<link rel="stylesheet" href="https://assets.givelab.com/css/snippet.css?v=4.3.9" />
+<title>$50 USD [5x$10] Giveaway [PayPal, CashApp, BTC] | GiveLab</title>
+<meta itemprop="name" content="$50 USD [5x$10] Giveaway [PayPal, CashApp, BTC] | GiveLab">
+
+<script type="f4cdd323ef6c84a13d1718d2-text/javascript">
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '2357056861009242');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=2357056861009242&ev=PageView&noscript=1"
+/></noscript>
+
+
+<script type="f4cdd323ef6c84a13d1718d2-text/javascript">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-52ZTZ84');</script>
+
+
+<meta itemprop="image" content="https://assets.givelab.com/img/gi/Be2DJM.jpg?v=1605321573">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@GiveLab">
+<meta name="twitter:title" content="$50 USD [5x$10] Giveaway [PayPal, CashApp, BTC]">
+<meta name="twitter:description" content="$10 x 5 [We can pay you through PayPal, Cashapp, BTC, Gift Cards!]Make sure to join the following se...">
+<meta name="twitter:creator" content="@GiveLab">
+<meta name="twitter:image:src" content="https://assets.givelab.com/img/gi/Be2DJM.jpg?v=1605321573">
+
+<meta property="og:title" content="$50 USD [5x$10] Giveaway [PayPal, CashApp, BTC]" />
+<meta property="og:url" content="https://givelab.com/RbTyZl/50-usd-5x-10-giveaway-paypal-cashapp-btc" />
+<meta property="og:image" content="https://assets.givelab.com/img/gi/Be2DJM.jpg?v=1605321573" />
+<meta property="og:description" content="$10 x 5 [We can pay you through PayPal, Cashapp, BTC, Gift Cards!]Make sure to join the following se..." />
+<meta property="og:site_name" content="GiveLab.com" />
+<meta name="robots" content="noindex" />
+<link rel="stylesheet" type="text/css" href="https://assets.givelab.com/css/countdown/jquery.countdown.css" />
+</head>
+<body class="body page-giveaway fullwidth fullheight">
+<section class="container-fluid">
+<div class="bg-image">
+<div class="center-logo">
+<a href="https://givelab.com" target="_blank">
+<img src="https://assets.givelab.com/img/logo-square-white.png" style="margin:-15px 0;" />
+</a>
+</div>
+<div class="two-col winner-info">
+<h5 class="card-header not">Winners</h5>
+<div class="row">
+<div class="col-md-4 col-sm-6">
+<p>$10 USD [PayPal, CashApp, BTC, G <em>($10 USD)</em></p>
+<div class="avatar-cont"><div class="avatar" style="background-image:url('https://assets.givelab.com/img/question.png')"></div></div>
+<p>Winner TBD</p>
+</div>
+<div class="col-md-4 col-sm-6">
+<p>$10 USD [PayPal, CashApp, BTC, G <em>($10 USD)</em></p>
+<div class="avatar-cont"><div class="avatar" style="background-image:url('https://assets.givelab.com/img/question.png')"></div></div>
+<p>Winner TBD</p>
+</div>
+<div class="col-md-4 col-sm-6">
+<p>$10 USD [PayPal, CashApp, BTC, G <em>($10 USD)</em></p>
+<div class="avatar-cont"><div class="avatar" style="background-image:url('https://assets.givelab.com/img/question.png')"></div></div>
+<p>Winner TBD</p>
+</div>
+<div class="col-md-4 col-sm-6">
+<p>$10 USD [PayPal, CashApp, BTC, G <em>($10 USD)</em></p>
+<div class="avatar-cont"><div class="avatar" style="background-image:url('https://assets.givelab.com/img/question.png')"></div></div>
+<p>Winner TBD</p>
+</div>
+<div class="col-md-4 col-sm-6">
+<p>$10 USD [PayPal, CashApp, BTC, G <em>($10 USD)</em></p>
+<div class="avatar-cont"><div class="avatar" style="background-image:url('https://assets.givelab.com/img/question.png')"></div></div>
+<p>Winner TBD</p>
+</div>
+</div>
+</div>
+<div class="two-col g-cont g-ended">
+<div class="inner">
+<div class="full-image" style="background-image:url(https://assets.givelab.com/img/gi/Be2DJM.jpg?v=1605321573)">
+<img class="img-fluid" src="https://assets.givelab.com/img/gi/Be2DJM.jpg?v=1605321573" />
+</div>
+<div class="left-col">
+<div class="time-entries row text-center">
+<div class="col-sm-6 border1">
+<h6>Status:</h6>
+<div id="countdown"><span>Ended</span></div>
+</div>
+<div class="col-sm-6 border2">
+<h6>Total Entries:</h6>
+<span id="totalEntries">38</span>
+</div>
+</div>
+<h1>$50 USD [5x$10] Giveaway [PayPal, CashApp, BTC]</h1>
+<div class="description">
+<p>$10 x 5 [We can pay you through PayPal, Cashapp, BTC, Gift Cards!]</p><p><strong>Make sure to join the following servers below to be eligible for the giveaway!</strong></p><ol><li>https://discord.gg/daddy</li></ol>
+</div>
+<center class="ways-to-enter">
+<h6 class="mb-0"><strong>8 Ways to Enter</strong></h6>
+</center>
+<div class="entries-container">
+<div class="row step">
+ <div class="one twitch">
+<i class="fab fa-twitch twitch"></i>
+</div>
+<div class="two">
+<span class="entry" data-sid="twitch">
+Follow on Twitch
+</span>
+</div>
+<div class="three">
+<i class="far fa-check-square"></i>
+<small><span>+1</span></small>
+</div>
+</div>
+<div class="row step">
+<div class="one youtube">
+<i class="fab fa-youtube youtube"></i>
+</div>
+<div class="two">
+<span class="entry" data-sid="auth">
+Subscribe to Youtube Channel
+</span>
+</div>
+<div class="three">
+<i class="far fa-check-square"></i>
+<small><span>+1</span></small>
+</div>
+</div>
+<div class="row step">
+<div class="one twitter">
+<i class="fab fa-twitter twitter"></i>
+</div>
+<div class="two">
+<span class="entry" data-sid="twitter">
+Follow on Twitter
+</span>
+</div>
+<div class="three">
+<i class="far fa-check-square"></i>
+<small><span>+1</span></small>
+</div>
+</div>
+<div class="row step">
+<div class="one tiktok">
+<i class="fab fa-tiktok tiktok"></i>
+</div>
+<div class="two">
+<span class="entry" data-sid="auth">
+Follow on TikTok @dadscord
+</span>
+</div>
+<div class="three">
+<i class="far fa-check-square"></i>
+<small><span>+1</span></small>
+</div>
+</div>
+<div class="row step">
+<div class="one instagram">
+<i class="fab fa-instagram instagram"></i>
+</div>
+<div class="two">
+<span class="entry" data-sid="auth">
+Follow Us On Instagram!
+</span>
+</div>
+<div class="three">
+<i class="far fa-check-square"></i>
+<small><span>+1</span></small>
+</div>
+</div>
+<div class="row step">
+<div class="one reddit">
+<i class="fab fa-reddit reddit"></i>
+</div>
+<div class="two">
+<span class="entry" data-sid="auth">
+Look at this on Reddit
+</span>
+</div>
+<div class="three">
+<i class="far fa-check-square"></i>
+<small><span>+1</span></small>
+</div>
+</div>
+<div class="row step">
+<div class="one custom">
+<i class="fas fa-globe custom"></i>
+</div>
+<div class="two">
+<span class="entry" data-sid="auth">
+Visit Website/URL Daily
+<i class="fas fa-info-circle" data-toggle="tooltip" data-placement="right" title="Return every 24 hours to complete this step"></i> </span>
+</div>
+<div class="three">
+<i class="far fa-check-square"></i>
+<small><span>+1</span></small>
+</div>
+</div>
+<div class="row step">
+<div class="one snapchat">
+<i class="fab fa-snapchat-ghost snapchat"></i>
+</div>
+<div class="two">
+<span class="entry" data-sid="auth">
+Follow on Snapchat
+</span>
+</div>
+<div class="three">
+<i class="far fa-check-square"></i>
+<small><span>+1</span></small>
+</div>
+</div>
+</div>
+</div>
+<div class="socials text-center">
+<p class="emb"><a class="showModal" data-modal="rulesModal">Terms & Conditions</a></p>
+<p class="emb"><span>Daddy™</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="modal fade" id="rulesModal" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title">Official Rules</h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+<p></p><ul><li>Must be a member of our discord server.</li><li>Must dm the server owner to claim the prize.</li></ul>
+</div>
+</div>
+</div>
+</div>
+<div class="modal fade active" id="loginModal" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title">Sign In</h5>
+<h5 class="modal-title">Register</h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body text-center">
+<h4>Please sign in to start entering this giveaway...</h4>
+<h4>Please register to start entering this giveaway...</h4>
+<div class="socialAuth">
+<p><a data-href="/auth/youtube" class="youtube auth btn"><i class="fab fa-youtube"></i> Continue with YouTube</a></p>
+<p><a data-href="/auth/twitter" class="twitter auth btn"><i class="fab fa-twitter"></i> Continue with Twitter</a></p>
+<p><a data-href="/auth/facebook" class="facebook auth btn"><i class="fab fa-facebook"></i> Continue with Facebook</a></p>
+<p><a data-href="/auth/twitch" class="twitch auth btn"><i class="fab fa-twitch"></i> Continue with Twitch</a></p>
+<div class="moreSocial">
+<h2>Or with:</h2>
+<a data-href="/auth/discord" class="discord auth btn"><i class="fab fa-discord"></i></a>
+<a data-href="/auth/reddit" class="reddit auth btn"><i class="fab fa-reddit"></i></a>
+<a data-href="/auth/steam" class="steam auth btn"><i class="fab fa-steam"></i></a>
+</div>
+</div>
+<div class="giveSocials" id="giveSocials">
+<h2>Login with:</h2>
+<div class="moreSocial">
+<a data-href="/auth/youtube" class="youtube auth btn"><i class="fab fa-youtube"></i></a>
+<a data-href="/auth/twitter" class="twitter auth btn"><i class="fab fa-twitter"></i></a>
+<a data-href="/auth/facebook" class="facebook auth btn"><i class="fab fa-facebook"></i></a>
+<a data-href="/auth/twitch" class="twitch auth btn"><i class="fab fa-twitch"></i></a>
+<a data-href="/auth/discord" class="discord auth btn"><i class="fab fa-discord"></i></a>
+<a data-href="/auth/reddit" class="reddit auth btn"><i class="fab fa-reddit"></i></a>
+<a data-href="/auth/steam" class="steam auth btn"><i class="fab fa-steam"></i></a>
+<a class="email auth btn"><i class="fas fa-envelope"></i></a>
+</div>
+</div>
+<form action="/shortregister" method="post" autocomplete="off" id="registerForm">
+<h6 class="giveRegister">Get started by providing your contact details</h6>
+<div class="form-row">
+<div class="form-group col-xs-6">
+<input placeholder="First Name" class="form-control" type="text" name="first_name" id="first_name" />
+</div>
+<div class="form-group col-xs-6">
+<input placeholder="Last Name" class="form-control" type="text" name="last_name" id="last_name" />
+</div>
+</div>
+<div class="form-group">
+<input placeholder="Email" class="form-control uniqueEmail" type="email" name="email" id="email" />
+</div>
+<input type="hidden" class="captcha-response" name="captcha-response" data-site="6LfBjLkUAAAAAHmoQ1SSygyeadWZDt2nD73sS6ue" />
+<div class="center">
+<button class="btn" id="registerSubmit">Continue</button>
+</div>
+<p class="center slog"><small>Already have an account? <span id="showLoginEmail" class="showLoginEmail">Login now</span></small></p>
+</form>
+<form action="/login" method="post" autocomplete="off" id="loginForm">
+<h6 class="giveRegister">It looks like you've entered another giveaway before. Try logging in with a linked social network above or email address and password.</h6>
+<div class="form-group">
+<input placeholder="Email" class="form-control" type="email" name="email" id="loginEmail" />
+</div>
+<div class="form-group">
+<input placeholder="Password" class="form-control" type="password" name="password" id="loginPassword" />
+</div>
+<div class="form-check">
+<input class="form-check-input" type="checkbox" name="remember" id="remember" /> <label for="remember">Remember me</label>
+</div>
+<input type="hidden" class="captcha-response" name="captcha-response" data-site="6LfBjLkUAAAAAHmoQ1SSygyeadWZDt2nD73sS6ue" />
+<div class="center">
+<button class="btn" id="loginSubmit">Login</button>
+</div>
+<p class="center"><small><span class="goback">Start over</span> or <a href="/recover-password">Recover your account</a></small></p>
+</form>
+</div>
+</div>
+</div>
+</div>
+<div class="modal fade" id="authModal" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title">Connect <span class="authType">Twitter</span></h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body text-center socialAuth">
+<h6>Please connect your <span class="authType">Twitter</span> account to complete this step.</h6>
+<a data-href="/auth/twitter" class="twitter auth btn hidden"><i class="fab fa-twitter"></i> Connect Twitter</a>
+<a data-href="/auth/twitch" class="twitch auth btn hidden"><i class="fab fa-twitch"></i> Connect Twitch</a>
+<a data-href="/auth/mixer" class="mixer auth btn hidden"><i class="fab fa-mixer"></i> Connect Mixer</a>
+<a data-href="/auth/tumblr" class="tumblr auth btn hidden"><i class="fab fa-tumblr"></i> Connect Tumblr</a>
+<a data-href="/auth/discord" class="discord auth btn hidden"><i class="fab fa-discord"></i> Connect Discord</a>
+</div>
+</div>
+</div>
+</div>
+<div class="spinner hidden"><div><img src="https://assets.givelab.com/img/loading.gif" /></div></div>
+<input id="ref" type="hidden" value="" />
+</section>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" type="f4cdd323ef6c84a13d1718d2-text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous" type="f4cdd323ef6c84a13d1718d2-text/javascript"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous" type="f4cdd323ef6c84a13d1718d2-text/javascript"></script>
+<script src="https://www.google.com/recaptcha/api.js?render=6LfBjLkUAAAAAHmoQ1SSygyeadWZDt2nD73sS6ue&onload=onloadCallback" async defer type="f4cdd323ef6c84a13d1718d2-text/javascript"></script>
+
+<script src="https://www.googletagmanager.com/gtag/js?id=UA-117844291-1" async type="f4cdd323ef6c84a13d1718d2-text/javascript"></script>
+<script type="f4cdd323ef6c84a13d1718d2-text/javascript">
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-117844291-1', { 'optimize_id': 'GTM-WSJ7NLP'});
+  </script>
+
+<script type="f4cdd323ef6c84a13d1718d2-text/javascript" src="https://assets.givelab.com/js/noty/noty.js?v=4.3.9"></script>
+<script type="f4cdd323ef6c84a13d1718d2-text/javascript" src="https://assets.givelab.com/js/jquery-oauthpopup.js?v=4.3.9"></script>
+<script type="f4cdd323ef6c84a13d1718d2-text/javascript" src="https://assets.givelab.com/js/jquery-paginate.min.js?v=4.3.9"></script>
+<script type="f4cdd323ef6c84a13d1718d2-text/javascript" src="https://assets.givelab.com/js/jquery-dateformat.min.js?v=4.3.9"></script>
+<script type="f4cdd323ef6c84a13d1718d2-text/javascript" src="https://assets.givelab.com/js/script.js?v=4.3.9"></script>
+<script type="f4cdd323ef6c84a13d1718d2-text/javascript" src="https://assets.givelab.com/js/countdown/jquery.plugin.js"></script>
+<script type="f4cdd323ef6c84a13d1718d2-text/javascript" src="https://assets.givelab.com/js/countdown/jquery.countdown.js"></script>
+<script type="f4cdd323ef6c84a13d1718d2-text/javascript" src="https://www.youtube.com/player_api"></script>
+<script type="f4cdd323ef6c84a13d1718d2-text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+<script type="f4cdd323ef6c84a13d1718d2-text/javascript" src="https://assets.givelab.com/js/giveaway.js?v=4.3.9"></script>
+<script type="f4cdd323ef6c84a13d1718d2-text/javascript">if(top.location != window.location)window.location = '?v=e';</script> <script type="f4cdd323ef6c84a13d1718d2-text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"NRJS-c03ab3bae17597080d7","applicationID":"1185281038","transactionName":"MQQANkcFCkMEBUMIXghOIwFBDQteSgFeF1QHFgMbGxcMXxI=","queueTime":0,"applicationTime":51,"atts":"HUMDQA8fGU0=","errorBeacon":"bam.nr-data.net","agent":""}</script><script src="https://ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js" data-cf-settings="f4cdd323ef6c84a13d1718d2-|49" defer=""></script><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"rayId":"62cd6998ff391cc4","si":10,"version":"2021.2.0"}'></script>
+</body>
+</html>
